@@ -104,5 +104,34 @@ namespace AircraftMaintenanceSystem
             repo.SaveToFile();
             history.Log("ADMIN: Aircraft Sorted");
         }
+        // Evaluation //
+        public List<AircraftModel> SearchByName(string model)//evaluation // .......part1
+        {
+            
+            List<AircraftModel> result = new List<AircraftModel>();
+            for(int i=0;i<repo.Aircrafts.Count;i++)
+            {
+                if (repo.Aircrafts[i].Model==model)
+                {
+                    result.Add(repo.Aircrafts[i]);
+                }
+                
+            }
+            return result;
+        }
+        public List<AircraftModel> SearchByYear(int year1,int year2) // evaluation// .........part2 
+        {
+
+            List<AircraftModel> result = new List<AircraftModel>();
+            for (int i = 0; i < repo.Aircrafts.Count; i++)
+            {
+                if (repo.Aircrafts[i].Year >= year1 && repo.Aircrafts[i].Year<=year2)
+                {
+                    result.Add(repo.Aircrafts[i]);
+                }
+
+            }
+            return result;
+        }
     }
 }

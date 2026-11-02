@@ -90,7 +90,7 @@ namespace AircraftMaintenanceSystem
                 else if (choice == 4)
                     aircraftUI.DeleteAircraft();
                 else if (choice == 5)
-                    aircraftUI.SearchAircraft();
+                    aircraftUI.GetAllRecords();// evaluation//
                 else if (choice == 6)
                     aircraftUI.SortAircraft();
                 else if (choice == 7)

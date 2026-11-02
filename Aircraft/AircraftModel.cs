@@ -5,8 +5,7 @@ namespace AircraftMaintenanceSystem
     {
         public string ID { get; set; }
         public string Model { get; set; }
-        public int Year { get; set; }
-
+        public int  Year { get; set;}
         public AircraftModel(string id, string model, int year)
         {
             ID = id;

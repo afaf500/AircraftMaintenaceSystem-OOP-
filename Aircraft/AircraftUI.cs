@@ -109,27 +109,47 @@ namespace AircraftMaintenanceSystem
             ConsoleHelper.PressAnyKey();
         }
 
-        public void SearchAircraft()
+       // public void SearchAircraft()
+       // {
+           // char more = 'y';
+           // while (more == 'y' || more == 'Y')
+           // {
+               // Console.Write("\nEnter Aircraft ID to search: ");
+               // string id = ConsoleHelper.ReadString();
+               // AircraftModel a = service.Find(id);
+               // if (a != null)
+               // {
+                  //  Console.WriteLine("Model : " + a.Model);
+                   // Console.WriteLine("Year  : " + a.Year);
+               // }
+               // else
+               // {
+               //     Console.WriteLine("Aircraft ID not found.");
+               // }
+               // Console.Write("\nSearch another? (y/n): ");
+               // more = ConsoleHelper.ReadChar();
+           // }
+           // ConsoleHelper.PressAnyKey();
+       // }
+       public void GetAllRecords()                 // evaluation//..............part 1 and part2
         {
-            char more = 'y';
-            while (more == 'y' || more == 'Y')
+            Console.WriteLine("Enter Aircraft model to search: ");
+            string m = ConsoleHelper.ReadString();
+            Console.WriteLine("Enter Aircraft minimum year  to search: ");
+            int Y1 = ConsoleHelper.ReadInt();
+            Console.WriteLine("Enter Aircraft maximum year to search: ");
+            int Y2 = ConsoleHelper.ReadInt();
+            List<AircraftModel> year = service.SearchByYear(Y1,Y2);
+            for (int i = 0; i < year.Count; i++)
             {
-                Console.Write("\nEnter Aircraft ID to search: ");
-                string id = ConsoleHelper.ReadString();
-                AircraftModel a = service.Find(id);
-                if (a != null)
-                {
-                    Console.WriteLine("Model : " + a.Model);
-                    Console.WriteLine("Year  : " + a.Year);
-                }
-                else
-                {
-                    Console.WriteLine("Aircraft ID not found.");
-                }
-                Console.Write("\nSearch another? (y/n): ");
-                more = ConsoleHelper.ReadChar();
+                Console.WriteLine(year[i].Year + "\t\t");
             }
-            ConsoleHelper.PressAnyKey();
+
+            List<AircraftModel> list = service.SearchByName(m);
+            for(int i=0;i<list.Count;i++)
+            {
+                Console.WriteLine(list[i].Model + "\t\t");
+            }
         }
 
         public void SortAircraft()
